@@ -1,0 +1,49 @@
+import pygame
+from pygame.locals import *
+from sys import exit 
+
+#inicia o jogo
+pygame.init()
+
+#Descrição da tela
+largura = 640
+altura = 480
+
+# Variaveis display 
+x = largura/2 
+y = 0
+
+game = pygame.display.set_mode((largura, altura))
+
+# nome do jogo
+pygame.display.set_caption('Jogo da cobrinha')
+
+
+# taxa de frems da tela 
+relogio = pygame.time.Clock()
+  
+# lupi do jogo
+while True:
+    relogio.tick(18) # quanto maior o numero de frems mais rapido o jogo vaiu rodar
+    game.fill((0,0,0))
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            pygame .quit()
+            exit ()
+    pygame.draw.rect(game,(0,255,0),(200,300,40,50))
+
+
+    pygame.display.update() # a cada iteração do jogador , atualiza a tela 
+
+    pygame.draw.rect(game, (255,0,0), (x, y , 40 , 50))
+    if y >= altura:
+        y = 0
+    y = y+5 # velocidade da cobra 
+
+    pygame.display.update()
+
+
+window.fill((0, 0, 0))  # Preenche com a cor branca
+window.blit(background, (0, 0))
+window.blit(meteor_img_small, (meteor_x, meteor_y))
+pygame.display.update()  # Mostra o novo frame para o jogador
